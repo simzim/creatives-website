@@ -1,5 +1,5 @@
 # creatives-website
-only html + scss
+html + scss
 
 ### 1. Link to deployed project
 https://simzim.github.io/creatives-website/
