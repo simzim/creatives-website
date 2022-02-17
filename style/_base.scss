@@ -1,0 +1,58 @@
+//Variables
+$maxWidth: 1230;
+
+// color
+$blue: #11749e;
+$dark-grey: #222222;
+$light-grey: #f3f3f3;
+$white: #fff;
+$title: #f5f5f5;
+
+// fonts
+@font-face {
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Gotham-Book"),
+    url("../fonts/gotham/GothamBook.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Gotham-Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Gotham-Bold"),
+    url("../fonts/gotham/gotham-bold-1361523260.woff") format("woff");
+}
+
+// mixin
+
+@mixin adaptive-font($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $addMobSize: $addSize + $addSize * 0.7;
+  @media (max-width: 767px) {
+    font-size: calc(
+      #{$mobSize + px} + #{$addMobSize} * ((100vw - 320px) / #{$maxWidth})
+    );
+  }
+  @media (min-width: 767px) {
+    font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+  }
+}
+
+@mixin section-title($color) {
+  color: $color;
+  font-size: 38px;
+  line-height: 45px;
+  text-transform: uppercase;
+  margin-top: -130px;
+  font-family: "Gotham";
+}
+
+@mixin section-letter($color) {
+  color: $color;
+  font-size: 247px;
+  line-height: 211px;
+  opacity: 0.2;
+  font-family: 'Roboto', sans-serif;
+}
